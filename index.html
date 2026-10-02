@@ -2,445 +2,193 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0,
-      maximum-scale=1.0,user-scalable=no">
+content="width=device-width,initial-scale=1.0,
+maximum-scale=1.0,user-scalable=no">
 
 <title>Payment Demo</title>
 
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#8c20dc">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
 <style>
+
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
 }
 
 body{
-  background:linear-gradient(135deg,#f7b6ff,#f5d7ff);
-  min-height:100vh;
-  color:#35105d;
+background:linear-gradient(135deg,#f7b6ff,#f5d7ff);
+min-height:100vh;
+color:#35105d;
 }
 
 .header{
-  padding:25px 15px 15px;
-  text-align:center;
+padding:25px 15px 15px;
+text-align:center;
 }
 
 .header h1{
-  color:#fff;
-  font-size:34px;
-  text-shadow:0 2px 5px #9b35c9;
+color:#fff;
+font-size:34px;
+text-shadow:0 2px 5px #9b35c9;
 }
 
 .header p{
-  margin-top:5px;
-  color:#6e278f;
+margin-top:5px;
+color:#6e278f;
 }
 
 .container{
-  padding:15px;
-  max-width:650px;
-  margin:auto;
+padding:15px;
+max-width:650px;
+margin:auto;
 }
 
 /* HOME */
+
 .cards{
-  display:flex;
-  gap:12px;
-  justify-content:center;
-  align-items:stretch;
+display:flex;
+gap:12px;
+justify-content:center;
+align-items:stretch;
 }
 
 .card{
-  width:50%;
-  background:#fff;
-  border:1px solid #dba8eb;
-  border-radius:15px;
-  padding:13px 8px;
-  text-align:center;
-  box-shadow:0 5px 15px rgba(100,0,130,.15);
+width:50%;
+background:#fff;
+border:1px solid #dba8eb;
+border-radius:15px;
+padding:13px 8px;
+text-align:center;
+box-shadow:0 5px 15px rgba(100,0,130,.15);
 }
 
 .card h3{
-  font-size:15px;
-  line-height:20px;
+font-size:15px;
+line-height:20px;
 }
 
 .price{
-  background:linear-gradient(90deg,#7b16db,#b124e8);
-  color:white;
-  font-size:25px;
-  font-weight:bold;
-  margin:10px -8px;
-  padding:8px;
-  transform:skew(-8deg);
+background:linear-gradient(90deg,#7b16db,#b124e8);
+color:white;
+font-size:25px;
+font-weight:bold;
+margin:10px -8px;
+padding:8px;
+transform:skew(-8deg);
 }
 
 .features{
-  text-align:left;
-  font-size:11px;
-  line-height:22px;
-  padding:5px;
+text-align:left;
+font-size:11px;
+line-height:22px;
+padding:5px;
 }
 
 .buy{
-  border:0;
-  background:#8b20db;
-  color:white;
-  padding:9px 17px;
-  border-radius:20px;
-  font-weight:bold;
-  cursor:pointer;
+border:0;
+background:#8b20db;
+color:white;
+padding:9px 17px;
+border-radius:20px;
+font-weight:bold;
+cursor:pointer;
 }
 
 .buttons{
-  display:flex;
-  gap:12px;
-  margin-top:35px;
+display:flex;
+gap:12px;
+margin-top:35px;
 }
 
 .bigbtn{
-  flex:1;
-  border:0;
-  padding:14px 5px;
-  border-radius:25px;
-  background:#8d20dc;
-  color:white;
-  font-weight:bold;
+flex:1;
+border:0;
+padding:14px 5px;
+border-radius:25px;
+background:#8d20dc;
+color:white;
+font-weight:bold;
 }
 
 /* PAYMENT */
+
 #paymentPage{
-  display:none;
+display:none;
 }
 
 .paymentBox{
-  background:#fff7ff;
-  border-radius:18px;
-  padding:20px 15px;
-  box-shadow:0 5px 20px rgba(80,0,100,.15);
+background:#fff7ff;
+border-radius:18px;
+padding:20px 15px;
+box-shadow:0 5px 20px rgba(80,0,100,.15);
 }
 
 .back{
-  background:none;
-  border:0;
-  font-size:18px;
-  color:#602080;
-  margin-bottom:15px;
-  cursor:pointer;
+background:none;
+border:0;
+font-size:18px;
+color:#602080;
+margin-bottom:15px;
+cursor:pointer;
 }
 
 .paymentTop{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
 }
 
 .paymentTitle{
-  font-size:20px;
-  font-weight:bold;
+font-size:20px;
+font-weight:bold;
 }
 
 .amount{
-  text-align:right;
+text-align:right;
 }
 
 .amount small{
-  display:block;
-  font-size:13px;
+display:block;
+font-size:13px;
 }
 
 .amount strong{
-  font-size:27px;
+font-size:27px;
 }
 
 .order{
-  font-size:13px;
-  color:#633b76;
-  margin:15px 0;
-  word-break:break-all;
+font-size:13px;
+color:#633b76;
+margin:15px 0;
+word-break:break-all;
 }
 
 .demo{
-  text-align:center;
-  color:#8b20db;
-  font-size:12px;
-  font-weight:bold;
-  margin-bottom:8px;
+text-align:center;
+color:#8b20db;
+font-size:12px;
+font-weight:bold;
+margin-bottom:8px;
 }
 
 .qr{
-  width:260px;
-  height:260px;
-  background:white;
-  border:1px solid #ddd;
-  border-radius:12px;
-  padding:10px;
-  display:block;
-  margin:10px auto 18px;
-  object-fit:contain;
-}
-
-.info{
-  text-align:center;
-  font-size:15px;
-  line-height:24px;
-  color:#573568;
-}
-
-.actionBtns{
-  display:flex;
-  gap:10px;
-  margin:20px 0;
-}
-
-.actionBtns button{
-  flex:1;
-  padding:13px;
-  border-radius:10px;
-  border:1px solid #b9a3c1;
-  background:white;
-  font-size:15px;
-}
-
-.download{
-  background:#2463e8 !important;
-  color:white;
-  border:0 !important;
-}
-
-.or{
-  text-align:center;
-  margin:20px 0;
-  color:#777;
-}
-
-.payOption{
-  padding:18px 5px;
-  border-top:1px solid #ddd;
-  font-size:17px;
-}
-
-.payOption span{
-  display:block;
-  color:#777;
-  font-size:13px;
-  margin-top:5px;
-}
-
-.note{
-  text-align:center;
-  margin-top:20px;
-  font-size:11px;
-  color:#777;
-}
-</style>
-</head>
-
-<body>
-
-<!-- HOME PAGE -->
-<div id="homePage">
-
-  <div class="header">
-    <h1>Fake Phone</h1>
-    <p>Choose your option</p>
-  </div>
-
-  <div class="container">
-
-    <div class="cards">
-
-      <div class="card">
-        <h3>NORMAL BUY<br>Phone pay</h3>
-
-        <div class="price">₹150</div>
-
-        <div class="features">
-          1. Double Bank ✓<br>
-          2. SMS Features ✓<br>
-          3. Permanent History ✓<br>
-          4. Sound Box ✕
-        </div>
-
-        <button class="buy" onclick="openPayment(150)">
-          BUY NOW ›
-        </button>
-      </div>
-
-      <div class="card">
-        <h3>SOUND BOX BUY<br>Phone pay</h3>
-
-        <div class="price">₹299</div>
-
-        <div class="features">
-          1. Double Bank ✓<br>
-          2. SMS Features ✓<br>
-          3. Permanent History ✓<br>
-          4. SOUND BOX ✓
-        </div>
-
-        <button class="buy" onclick="openPayment(299)">
-          BUY NOW ›
-        </button>
-      </div>
-
-    </div>
-
-    <div class="buttons">
-      <button class="bigbtn">VIDEO PROOF DEKHAO ›</button>
-      <button class="bigbtn">FEEDBACKS ›</button>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- PAYMENT PAGE -->
-<div id="paymentPage">
-
-  <div class="container">
-
-    <div class="paymentBox">
-
-      <button class="back" onclick="goBack()">
-        ← Back
-      </button>
-
-      <div class="paymentTop">
-
-        <div class="paymentTitle">
-          🛍️ YOUR PAYMENT
-        </div>
-
-        <div class="amount">
-          <small>Amount to pay</small>
-          <strong id="amount">₹299.00</strong>
-        </div>
-
-      </div>
-
-      <div class="order">
-        Order ID:
-        <span id="orderId"></span>
-      </div>
-
-      <div class="demo">
-        DEMO PAYMENT • YOUR PAYMENT QR
-      </div>
-
-      <!-- APNA QR YAHAN RAKHO -->
-      <img
-        id="qrImage"
-        class="qr"
-        src="qr.png"
-        alt="Your Payment QR">
-
-      <div class="info">
-        Scan this QR code with your UPI app
-        to make payment
-      </div>
-
-      <div class="actionBtns">
-
-        <button class="download"
-                onclick="downloadQR()">
-          ↓ Download QR
-        </button>
-
-        <button onclick="shareQR()">
-          ↗ Share QR
-        </button>
-
-      </div>
-
-      <div class="or">OR</div>
-
-      <div class="payOption">
-        📱 UPI App
-        <span>Open your UPI app to make payment</span>
-      </div>
-
-      <div class="payOption">
-        💳 Other UPI App
-        <span>Use your preferred payment application</span>
-      </div>
-
-      <div class="note">
-        This is a demo payment interface.
-      </div>
-
-    </div>
-
-  </div>
-</div>
-
-
-<script>
-
-let selectedAmount = 299;
-
-function openPayment(amount){
-
-  selectedAmount = amount;
-
-  document.getElementById("amount").innerText =
-    "₹" + amount.toFixed(2);
-
-  document.getElementById("orderId").innerText =
-    "DEMO-" + Date.now();
-
-  document.getElementById("homePage").style.display =
-    "none";
-
-  document.getElementById("paymentPage").style.display =
-    "block";
-
-  window.scrollTo(0,0);
-}
-
-function goBack(){
-
-  document.getElementById("paymentPage").style.display =
-    "none";
-
-  document.getElementById("homePage").style.display =
-    "block";
-
-  window.scrollTo(0,0);
-}
-
-function downloadQR(){
-
-  const link = document.createElement("a");
-
-  link.href = "qr.png";
-  link.download = "payment-qr.png";
-
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
-
-async function shareQR(){
-
-  if(navigator.share){
-
-    try{
-      await navigator.share({
-        title:"Payment QR",
-        text:"Payment QR"
-      });
-    }catch(e){}
-    
-  }else{
-    alert("Sharing is not supported on this browser.");
-  }
-}
-
-</script>
-
-</body>
-</html>
+width:260px;
+height:260px;
+background:white;
+border:1px solid #ddd;
+border-radius:12px;
+padding:10px;
+display:block;
+margin:10px auto 18px;
+object-fit
