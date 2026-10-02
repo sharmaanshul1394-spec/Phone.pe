@@ -23,5 +23,21 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "/Phone.pe/home-screenshot.png",
+      "sizes": "699x1536",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Fake Phone home page"
+    },
+    {
+      "src": "/Phone.pe/payment-screenshot.png",
+      "sizes": "699x1536",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Fake Phone payment page"
+    }
   ]
 }
