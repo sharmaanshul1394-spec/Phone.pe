@@ -6,6 +6,10 @@
   "start_url": "/Phone.pe/",
   "scope": "/Phone.pe/",
   "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
   "orientation": "portrait",
   "background_color": "#f7b6ff",
   "theme_color": "#8c20dc",
