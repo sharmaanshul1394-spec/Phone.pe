@@ -1,0 +1,19 @@
+{
+  "name": "Payment Demo",
+  "short_name": "Payment Demo",
+  "description": "Demo payment interface",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f7b6ff",
+  "theme_color": "#8c20dc",
+  "icons": [
+    {
+      "src": "qr.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
